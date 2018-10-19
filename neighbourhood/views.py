@@ -58,3 +58,9 @@ def activate(request, uidb64, token):
 
     else:
         return HttpResponse('Activation link is invalid!')
+
+
+def profile(request):
+    current_user = request.user
+
+    return render(request, 'profile.html', locals())
