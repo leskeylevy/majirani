@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from .forms import SignupForm
+from .forms import SignupForm,ProfileForm
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -62,5 +62,12 @@ def activate(request, uidb64, token):
 
 def profile(request):
     current_user = request.user
+    prof = ProfileForm()
+    if request.method == 'POST':
+        prof = ProfileForm(request.POST,request.FILES)
+        if prof.is_valid():
+            prf = prof.save(commit=False)
+            prf.user = current_user
+            prf.save()
 
     return render(request, 'profile.html', locals())

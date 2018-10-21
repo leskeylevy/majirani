@@ -6,8 +6,8 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="profile-image">
-                {% if request.user.profile.dp %}
-               <img class="img-circle center" src="{{request.user.profile.dp.url}}" width="600px" height="600px">
+                {% if request.user.profile.profile_picture %}
+               <img class="img-circle center" src="{{request.user.profile.profile_picture.url}}" width="400px" height="400px">
                 {% else %}
                 <img class="img-circle center" src="https://images.unsplash.com/photo-1535930749574-1399327ce78f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1f8a140ac20927deb386d1c9187433d6&auto=format&fit=crop&w=500&q=60" width="400" height="400">
                 {% endif %}
@@ -17,13 +17,36 @@
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
       <li><a href="/accounts/password/change"><button>Change Password</button></a></li>
-      <li><a href="#">Edit Profile</a></li>
+        <li><a><button data-target="#profile" data-toggle="modal" data-ta>Edit Profile</button></a></li>
       <li><a href="#">JavaScript</a></li>
     </ul>
   </div>
  <h1 style="text-align: center; color: cyan">{{request.user.username}}</h1>
  <p>{{request.user.profile.bio}}</p>
 
+   <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form  action="{%url 'profile'%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+
+    {% bootstrap_form prof%}
+    <input type="submit" class="btn btn-success btn-lg" value="Post">
+  </form>
+      </div>
+      <div class="modal-footer">
+        ...
+      </div>
+    </div>
+  </div>
+   </div>
                 <hr>
 
 
