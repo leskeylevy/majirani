@@ -31,7 +31,7 @@ class Business(models.Model):
     owner = models.ForeignKey(Profile)
     show_my_email = models.BooleanField(default=True)
     description = models.TextField(default='Local business')
-    neighbourhood = models.ForeignKey(Neighbourhood, related_name='biashara')
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name='business')
 
     @property
     def email(self):

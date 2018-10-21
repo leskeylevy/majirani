@@ -1,23 +1,48 @@
 {%extends 'base.html'%}
 {% load bootstrap3 %}
 {% block content %}
-    <h1 style="text-align: center">{{request.user.username}}</h1><br>
-<div class="container">
-    <div class="row">
+<div class="container" >
+       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="profile-image">
                 {% if request.user.profile.dp %}
-               <img src="{{request.user.profile.dp.url}}" width="600px" height="600px">
+               <img class="img-circle center" src="{{request.user.profile.dp.url}}" width="600px" height="600px">
                 {% else %}
-                <img src="https://images.unsplash.com/photo-1535930749574-1399327ce78f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1f8a140ac20927deb386d1c9187433d6&auto=format&fit=crop&w=500&q=60" width="400" height="400">
+                <img class="img-circle center" src="https://images.unsplash.com/photo-1535930749574-1399327ce78f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1f8a140ac20927deb386d1c9187433d6&auto=format&fit=crop&w=500&q=60" width="400" height="400">
                 {% endif %}
+
+                <div class="dropdown " style="text-align: center; color: cyan">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-cog"></i>
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="/accounts/password/change"><button>Change Password</button></a></li>
+      <li><a href="#">Edit Profile</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </div>
+ <h1 style="text-align: center; color: cyan">{{request.user.username}}</h1>
+ <p>{{request.user.profile.bio}}</p>
+
+                <br>
+
+
+</div>
     </div>
- <a href="/accounts/password/change"><button>Change Password</button></a>
- <button>Edit Profile</button>
+
         </div>
         <div class="col-md-2"></div>
     </div>
 </div>
-
+<style>
+    .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+.fa-cog{
+size: 5*;
+}
+</style>
 {% endblock %}
