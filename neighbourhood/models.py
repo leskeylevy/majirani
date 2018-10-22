@@ -51,5 +51,5 @@ class Business(models.Model):
 
 class Post(models.Model):
     user = models.ForeignKey(Profile)
-    Text = models.TextField()
+    Text = models.CharField(max_length=250)
     neighbourhood = models.ForeignKey(Neighbourhood, related_name='posts')
