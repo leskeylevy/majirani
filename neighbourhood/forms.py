@@ -16,3 +16,9 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('Name', 'dp', 'bio', 'neighbourhood')
+
+
+class BusinessForm(forms.ModelForm):
+    class Meta:
+        model = Business
+        fields =('Name','owner','describe','neighbourhood')
