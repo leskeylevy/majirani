@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from .forms import SignupForm,ProfileForm,BusinessForm
+from .forms import SignupForm,ProfileForm,BusinessForm, PostForm
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -13,7 +13,16 @@ from django.core.mail import EmailMessage
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    form = PostForm()
+    if request.method =='POST':
+        form=PostForm(request.POST)
+        if form.is_valid():
+            message = form.save(commit=False)
+            message.user = request.user
+            message.neighbourhood = request.user.profile.neighbourhood
+            message.save()
+            return request('/')
+    return render(request, 'index.html', locals())
 
 
 def signup(request):
