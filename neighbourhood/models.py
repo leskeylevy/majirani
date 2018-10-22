@@ -48,8 +48,8 @@ class Business(models.Model):
     def email(self):
         return self.owner.user.email
 
-#
-# class Post(models.Model):
-#     user = models.ForeignKey(Profile)
-#     Text = models.TextField()
-#     neighbourhood = models.ForeignKey(Neighbourhood, related_name='posts')
+
+class Post(models.Model):
+    user = models.ForeignKey(Profile)
+    Text = models.TextField()
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name='posts')
