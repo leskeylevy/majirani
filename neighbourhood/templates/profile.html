@@ -6,8 +6,8 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="profile-image">
-                {% if request.user.profile.profile_picture %}
-               <img class="img-circle center" src="{{request.user.profile.profile_picture.url}}" width="400px" height="400px">
+                {% if request.user.profile.dp %}
+               <img class="img-circle center" src="{{request.user.profile.dp.url}}" width="400px" height="400px">
                 {% else %}
                 <img class="img-circle center" src="https://images.unsplash.com/photo-1535930749574-1399327ce78f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1f8a140ac20927deb386d1c9187433d6&auto=format&fit=crop&w=500&q=60" width="400" height="400">
                 {% endif %}
@@ -21,8 +21,8 @@
       <li><a href="#">JavaScript</a></li>
     </ul>
   </div>
- <h1 style="text-align: center; color: cyan">{{request.user.username}}</h1>
- <p>{{request.user.profile.bio}}</p>
+ <h1 style="text-align: center; color: cyan">{{request.user.profile.Name}}</h1>
+ <h3 style="color: white">{{request.user.profile.bio}}</h3>
 
    <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

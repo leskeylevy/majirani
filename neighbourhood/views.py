@@ -64,7 +64,7 @@ def profile(request):
     current_user = request.user
     prof = ProfileForm()
     if request.method == 'POST':
-        prof = ProfileForm(request.POST,request.FILES)
+        prof = ProfileForm(request.POST,request.FILES,instance=request.user.profile)
         if prof.is_valid():
             prf = prof.save(commit=False)
             prf.user = current_user
