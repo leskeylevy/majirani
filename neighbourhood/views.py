@@ -66,6 +66,7 @@ def profile(request):
     biz = BusinessForm()
     if request.method == 'POST':
         prof = ProfileForm(request.POST,request.FILES,instance=request.user.profile)
+        biz = BusinessForm(request.POST)
         if prof.is_valid():
             prf = prof.save(commit=False)
             prf.user = current_user
@@ -75,6 +76,7 @@ def profile(request):
             bizna = biz.save(commit=False)
             bizna.user = current_user
             bizna.save()
+            print('its working! ')
             return redirect('profile')
     return render(request, 'profile.html', locals())
 

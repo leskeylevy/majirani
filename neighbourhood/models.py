@@ -38,7 +38,7 @@ class Profile(models.Model):
 
 
 class Business(models.Model):
-    Name = models.TextField()
+    business_name = models.TextField()
     owner = models.ForeignKey(Profile)
     show_my_email = models.BooleanField(default=True)
     description = models.TextField(default='Local business')
