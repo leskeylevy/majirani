@@ -9,14 +9,13 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
-from .models import Post, Neighbourhood, Business
+from .models import Post, Business
 
 
 # Create your views here.
 def index(request):
     form = PostForm()
-    mabiz = Business.object.filter(neighbourhood=request.user.profile.neighbourhood))
-    messages = Post.object.filter(neighbourhood=request.user.profile.neighbourhood)
+    mabiz = Business.objects.filter(neighbourhood=request.user.profile.neighbourhood)
     if request.method =='POST':
         form=PostForm(request.POST)
         if form.is_valid():
@@ -25,6 +24,8 @@ def index(request):
             message.neighbourhood = request.user.profile.neighbourhood
             message.save()
             return request('/')
+    messages = Post.objects.filter(neighbourhood=request.user.profile.neighbourhood)
+
     return render(request, 'index.html', locals())
 
 
