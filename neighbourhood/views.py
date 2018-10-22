@@ -71,3 +71,9 @@ def profile(request):
             prf.save()
 
     return render(request, 'profile.html', locals())
+
+
+def business(request):
+    current_user = request.user
+
+    return render(request)

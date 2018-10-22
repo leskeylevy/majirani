@@ -18,7 +18,7 @@ class Neighbourhood(models.Model):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User,related_name='profile', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
     Name = models.TextField(default="Anonymous")
     dp = models.ImageField(upload_to='users/', default='users/thanos.jpg')
     bio = models.TextField(default="I'm using majirani")
@@ -36,17 +36,18 @@ class Profile(models.Model):
     def __str__(self):
         return f'Profile {self.user.username}'
 
-# class Business(models.Model):
-#     Name = models.TextField()
-#     owner = models.ForeignKey(Profile)
-#     show_my_email = models.BooleanField(default=True)
-#     description = models.TextField(default='Local business')
-#     neighbourhood = models.ForeignKey(Neighbourhood, related_name='business')
-#
-#     @property
-#     def email(self):
-#         return self.owner.user.email
-#
+
+class Business(models.Model):
+    Name = models.TextField()
+    owner = models.ForeignKey(Profile)
+    show_my_email = models.BooleanField(default=True)
+    description = models.TextField(default='Local business')
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name='business')
+
+    @property
+    def email(self):
+        return self.owner.user.email
+
 #
 # class Post(models.Model):
 #     user = models.ForeignKey(Profile)
