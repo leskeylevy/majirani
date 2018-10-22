@@ -12,6 +12,11 @@
     <div class="row">
         <div class="col-md-6 border">
            <h2>POSTS</h2>
+            <div class="profile-image">{% if request.user.profile.dp %}
+            <img src="{{request.user.profile.dp.url}}" class="rounded-circle" width="50px" height="50px">{{item.user.username}}{%else%}
+                <img src="https://images.unsplash.com/photo-1535930749574-1399327ce78f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1f8a140ac20927deb386d1c9187433d6&auto=format&fit=crop&w=500&q=60"  class="rounded-circle" width="50px" height="50px">{{item.user.username}}
+                {% endif %}
+            </div>
         </div>
         <div class="col-md-6">
             <h2>BUSSINESSES</h2>

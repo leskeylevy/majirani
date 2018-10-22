@@ -79,3 +79,6 @@ section{
  background-repeat:no-repeat;
  background-size:100%;
 }
+.border {
+border-right: 1px solid black;
+}
