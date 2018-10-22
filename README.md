@@ -97,7 +97,7 @@ Set the configuration to production mode
 ## Live Demo
 
 The web app can be accessed from the following link: 
-[Website Ranker](https://majiraniappa.herokuapp.com/)
+[Majiraniappa](https://majiraniappa.herokuapp.com/)
 
 
 ## Technology used
