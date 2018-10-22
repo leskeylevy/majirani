@@ -2,7 +2,7 @@
 A web application where users create profile linked to a community through which they can make posts, and interact with other Users and their businesses within a comunity.
 
 ------------------------------------------------------------------------
-## BY: [Lekeylevy](https://github.com/leskeylevy)
+## BY: [Leskeylevy](https://github.com/leskeylevy)
 
 ## User Requirements
 
