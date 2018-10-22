@@ -76,7 +76,6 @@ def profile(request):
             bizna = biz.save(commit=False)
             bizna.user = current_user
             bizna.save()
-            print('its working! ')
             return redirect('profile')
     return render(request, 'profile.html', locals())
 

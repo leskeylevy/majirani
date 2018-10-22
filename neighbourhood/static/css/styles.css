@@ -73,3 +73,9 @@ section{
 #mobile_nav:hover{
   	color: #434244;
 }
+.jumbotron{
+ text-align: center;
+ background-image:url('/static/images/landing1.jpg');
+ background-repeat:no-repeat;
+ background-size:100%;
+}
