@@ -1,9 +1,9 @@
 {%extends 'base.html' %} {% load bootstrap3 %} {% block content %}
 <div class="jumbotron">
   <div class="header" id="display-text">
-    <h1 style="color: black"><b>MAJIRANIAPP</b></h1>
+    <h1 style="color: cyan"><b>MAJIRANIAPP</b></h1>
     <h3 style="color: white">Keep track of your neighbourhood here by getting all the latest details</h3>
-        <h3  style="color: white ">Your can always update your neighbourhood in the profile settings among other fun features</h3>
+        <h3  style="color: white  ">Your can always update your neighbourhood in the profile settings among other fun features</h3>
 
     </div>
 </div>
@@ -16,6 +16,7 @@
             <img src="{{request.user.profile.dp.url}} " class="img-circle " width="20px " height="20px ">{{user.username}}:{{message.Text}}{%else%}
                 <img src="https://images.unsplash.com/photo-1535930749574-1399327ce78f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1f8a140ac20927deb386d1c9187433d6&auto=format&fit=crop&w=500&q=60 "  class="rounded-circle " width="50px " height="50px ">{{item.user.username}}
                 {% endif %}
+            </div>
                 {%endfor %}
                 <form  action="{%url 'index'%} " method="post " enctype="multipart/form-data ">
                     {%csrf_token%}
@@ -23,10 +24,10 @@
                     {% bootstrap_form form%}
                     <input type="submit " class="btn btn-success " value="Post ">
                 </form>
-            </div>
+            
         </div>
         <div class="col-md-6">
-            <h3>Businesses</h3>
+            <h3>Businesses </h3>
             {% for biz in mabiz %}
             <p>BUSINESS NAME:{{biz.business_name}}</p>
             <p>DESCRIPTION:{{biz.description}}</p>
