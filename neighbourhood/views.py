@@ -9,7 +9,8 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
-from .models import Post, Business
+from .models import Post, Business,Neighbourhood
+from django.views.generic import ListView
 
 
 # Create your views here.
@@ -93,5 +94,8 @@ def profile(request):
     return render(request, 'profile.html', locals())
 
 
-def hoods(request):
-    return render(request,'hoods.html')
+class HoodView(ListView):
+    template_name = 'hoods.html'
+
+    def get_queryset(self):
+        return Neighbourhood.objects.all()

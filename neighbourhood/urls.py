@@ -10,7 +10,7 @@ urlpatterns=[
         views.activate, name='activate'),
     url(r'^accounts/profile',views.profile,name='profile'),
     url(r'^accounts/profile',views.profile,name='business'),
-    url(r'^hood',views.hoods,name='hoods')
+    url(r'^hood',views.HoodView.as_view(),name='hoods')
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
