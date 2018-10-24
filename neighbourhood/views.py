@@ -93,13 +93,5 @@ def profile(request):
     return render(request, 'profile.html', locals())
 
 
-# def business(request):
-#     current_user = request.user
-#     biz = BusinessForm()
-#     if request.method == 'POST':
-#         biz=BusinessForm(request.POST)
-#         if biz.is_valid():
-#             bizna = biz.save(commit=False)
-#             bizna.user = current_user
-#             bizna.save()
-#     return render(request)
+def hoods(request):
+    return render(request,'hoods.html')
