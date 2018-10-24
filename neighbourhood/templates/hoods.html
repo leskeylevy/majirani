@@ -1,15 +1,19 @@
 {%extends 'base.html' %} {% block content %}
+<div class="jumbotron"><h1 style="color: white;font-family: 'Tangerine', cursive;">REPYOHOOD</h1></div>
 <div class="container">
   {% for hood in object_list %}
-  <div class="col-md-4 col-lg-4 col-sm-6">
+  <div class="col-md-4 col-sm-6">
     <div class="card">
         <div style="text-align:center; color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
             <h5>{{ hood.Name}}</h5>
         </div>
-        <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image">
+        <div style="text-align:center; background-color:#01193f;" class="card-image">
 
-            <img class="img-responsive" src="{{hood.display.url}}" alt="" height="200px" width="300px">
+            <img style="width: 300px;text-align:center; height: 300px;" class="img-responsive" src="{{hood.display.url}}" alt="">
 
+        </div>
+        <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+            <a href="/hoods/{{ hood.id}}"> <button class="btn btn-outline-primary btn-sm">Join Hood &#8594;</button> </a>
         </div>
 
     </div>
