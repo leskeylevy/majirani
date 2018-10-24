@@ -11,9 +11,11 @@ from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from .models import Post, Business,Neighbourhood
 from django.views.generic import ListView
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required
 def index(request):
     form = PostForm()
     mabiz = Business.objects.filter(neighbourhood=request.user.profile.neighbourhood)
@@ -74,6 +76,7 @@ def activate(request, uidb64, token):
         return HttpResponse('Activation link is invalid!')
 
 
+@login_required
 def profile(request):
     current_user = request.user
     prof = ProfileForm()
